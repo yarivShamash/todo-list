@@ -1,10 +1,15 @@
-import { PropsWithChildren, createContext, useState } from "react";
+import {
+  ChangeEventHandler,
+  PropsWithChildren,
+  createContext,
+  useState,
+} from "react";
 import { Task } from "./types";
 
 export interface TasksContext {
   tasks: Task[];
   handleAddTask: (newTask: Task) => void;
-  handleEditTask: (editedTask: Task) => void;
+  handleEditTask: (id: string) => ChangeEventHandler<HTMLInputElement>;
   handleDeleteTask: (taskId: string) => void;
 }
 
@@ -24,12 +29,22 @@ export const TasksProvider = ({
     setTasks([...tasks, newTask]);
   };
 
-  const handleEditTask = (editedTask: Task) => {
-    const updatedTasks = tasks.map((task) =>
-      task.id === editedTask.id ? editedTask : task
-    );
-    setTasks(updatedTasks);
-  };
+  const handleEditTask: (id: string) => ChangeEventHandler<HTMLInputElement> =
+    (taskId: string) => (e) => {
+      const editedTask = tasks.find(({ id }) => id === taskId);
+      if (!editedTask) return;
+
+      if (e.target.type === "checkbox") {
+        editedTask.done = e.target.checked;
+      } else {
+        editedTask.description = e.target.value;
+      }
+
+      const updatedTasks = tasks.map((task) =>
+        task.id === editedTask.id ? editedTask : task
+      );
+      setTasks(updatedTasks);
+    };
 
   const handleDeleteTask = (taskId: string) => {
     const updatedTasks = tasks.filter(({ id }) => id !== taskId);

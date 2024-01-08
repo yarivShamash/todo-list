@@ -1,16 +1,12 @@
-import { useContext, useMemo } from "react";
+import { useContext, useMemo, useState } from "react";
 import { TasksContext } from "../TasksContext";
 
 import * as S from "./styles";
 import { TaskLine } from "../TaskLine";
 
-// Improve UI
-// handleClickTask toggle task's editable mode
-//  onChange Edit task
-// checkbox to mark as done
-// addTask button
-
 export const Tasks = () => {
+  const [editableLineId, setEditableLineId] = useState("");
+
   const tasksContext = useContext(TasksContext);
   const todoTasks = useMemo(
     () => tasksContext?.tasks.filter(({ done }) => !done) ?? [],
@@ -20,6 +16,11 @@ export const Tasks = () => {
     () => tasksContext?.tasks.filter(({ done }) => !!done) ?? [],
     [tasksContext?.tasks]
   );
+
+  const enterEditMode = (taskId: string) => setEditableLineId(taskId);
+  const exitEditMode = () => {
+    setEditableLineId(() => "");
+  };
 
   if (!tasksContext) return null;
 
@@ -32,7 +33,11 @@ export const Tasks = () => {
             <TaskLine
               key={task.id}
               task={task}
+              editableLineId={editableLineId}
+              enterEditMode={enterEditMode}
+              exitEditMode={exitEditMode}
               handleDeleteTask={tasksContext.handleDeleteTask}
+              handleEditTask={tasksContext.handleEditTask}
             />
           ))}
         </div>
@@ -44,7 +49,11 @@ export const Tasks = () => {
             <TaskLine
               key={task.id}
               task={task}
+              editableLineId={editableLineId}
+              enterEditMode={enterEditMode}
+              exitEditMode={exitEditMode}
               handleDeleteTask={tasksContext.handleDeleteTask}
+              handleEditTask={tasksContext.handleEditTask}
             />
           ))}
         </div>
