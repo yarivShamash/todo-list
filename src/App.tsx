@@ -1,7 +1,7 @@
-import { TasksContext, Task } from "./TasksContext";
+import { Task, TasksProvider } from "./TasksContext";
+import { Tasks } from "./Tasks";
 
 import "./App.css";
-import { Tasks } from "./Tasks";
 
 const mockTasks: Task[] = [
   {
@@ -17,7 +17,7 @@ const mockTasks: Task[] = [
   {
     id: "3",
     description: "third",
-    done: false,
+    done: true,
   },
   {
     id: "4",
@@ -28,12 +28,11 @@ const mockTasks: Task[] = [
 
 const App = (): React.ReactElement => {
   return (
-    <>
+    <TasksProvider value={mockTasks}>
       <h1>Tasks List</h1>
-      <TasksContext.Provider value={mockTasks}>
-        <Tasks />
-      </TasksContext.Provider>
-    </>
+
+      <Tasks />
+    </TasksProvider>
   );
 };
 
