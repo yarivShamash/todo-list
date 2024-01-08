@@ -1,16 +1,18 @@
 import { PropsWithChildren, createContext, useState } from "react";
 import { Task } from "./types";
 
-export const TasksContext = createContext<{
+export interface TasksContext {
   tasks: Task[];
   handleAddTask: (newTask: Task) => void;
   handleEditTask: (editedTask: Task) => void;
   handleDeleteTask: (taskId: string) => void;
-} | null>(null);
+}
 
 interface TasksProviderProps {
   value: Task[];
 }
+
+export const TasksContext = createContext<TasksContext | null>(null);
 
 export const TasksProvider = ({
   value,
@@ -28,6 +30,7 @@ export const TasksProvider = ({
     );
     setTasks(updatedTasks);
   };
+
   const handleDeleteTask = (taskId: string) => {
     const updatedTasks = tasks.filter(({ id }) => id !== taskId);
     setTasks(updatedTasks);
