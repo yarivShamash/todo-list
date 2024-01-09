@@ -7,6 +7,31 @@ import * as S from "./styles";
 import { TaskLine } from "../TaskLine";
 import { TaskDescriptionEdit } from "../TaskDescriptionEdit";
 
+// Improve UI
+// mocks should be provider through a context depending on a ?mock query param
+
+// const mockTasks: Task[] = [
+//   {
+//     id: "1",
+//     description: "first",
+//     done: false,
+//   },
+//   {
+//     id: "2",
+//     description: "second",
+//     done: false,
+//   },
+//   {
+//     id: "3",
+//     description: "third",
+//     done: true,
+//   },
+//   {
+//     id: "4",
+//     description: "fourth",
+//     done: false,
+//   },
+// ];
 export const Tasks = () => {
   const [editableLineId, setEditableLineId] = useState("");
   const [newTask, setNewTask] = useState<Task | null>(null);

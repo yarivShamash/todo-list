@@ -1,15 +1,21 @@
+import { ThemeProvider } from "styled-components";
+import original from "react95/dist/themes/original";
+
 import { TasksProvider } from "./TasksContext";
 import { Tasks } from "./Tasks";
-
-import "./App.css";
+import { GlobalStyles } from "./App.style";
 
 const App = (): React.ReactElement => {
   return (
-    <TasksProvider value={[]}>
-      <h1>Tasks List</h1>
+    <>
+      <GlobalStyles />
+      <ThemeProvider theme={original}></ThemeProvider>
+      <TasksProvider value={[]}>
+        <h1>Tasks List</h1>
 
-      <Tasks />
-    </TasksProvider>
+        <Tasks />
+      </TasksProvider>
+    </>
   );
 };
 
