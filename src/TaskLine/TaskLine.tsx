@@ -1,13 +1,7 @@
-import { Task, TasksContext } from "../TasksContext";
+import { TaskDescriptionEdit } from "../TaskDescriptionEdit";
 
+import { TaskLineProps } from "./types";
 import * as S from "./styles";
-
-type TaskLineProps = {
-  task: Task;
-  editableLineId: string;
-  enterEditMode: (taskId: string) => void;
-  exitEditMode: () => void;
-} & Omit<TasksContext, "tasks" | "handleAddTask">;
 
 export const TaskLine = ({
   task,
@@ -22,10 +16,11 @@ export const TaskLine = ({
   const onDeleteTask = () => handleDeleteTask(task.id);
 
   return editableLineId === task.id ? (
-    <div style={S.taskLine}>
-      <input key={task.id} autoFocus onChange={handleTaskChange} />
-      <button onClick={exitEditMode}>v</button>
-    </div>
+    <TaskDescriptionEdit
+      task={task}
+      handleTaskChange={handleTaskChange}
+      exitEditMode={exitEditMode}
+    />
   ) : (
     <div style={S.taskLine}>
       <input type="checkbox" checked={task.done} onChange={handleTaskChange} />
