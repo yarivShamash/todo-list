@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-
 import { styleReset } from "react95";
 
 import ms_sans_serif from "react95/dist/fonts/ms_sans_serif.woff2";
