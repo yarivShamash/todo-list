@@ -1,3 +1,6 @@
-import { CSSProperties } from "react";
+import { styled } from "styled-components";
 
-export const taskLine: CSSProperties = { display: "flex", width: "100%" };
+export const TaskLine = styled.div`
+  display: flex;
+  width: 100%;
+`;

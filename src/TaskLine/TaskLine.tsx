@@ -1,4 +1,5 @@
 import { TaskDescriptionEdit } from "../TaskDescriptionEdit";
+import { Button, Checkbox } from "react95";
 
 import { TaskLineProps } from "./types";
 import * as S from "./styles";
@@ -22,10 +23,16 @@ export const TaskLine = ({
       exitEditMode={exitEditMode}
     />
   ) : (
-    <div style={S.taskLine}>
-      <input type="checkbox" checked={task.done} onChange={handleTaskChange} />
-      <p onClick={handleLineClick}>{task.description}</p>
-      <button onClick={onDeleteTask}>x</button>
-    </div>
+    <S.TaskLine>
+      <Checkbox
+        type="checkbox"
+        checked={task.done}
+        onChange={handleTaskChange}
+      />
+      <S.TaskDescription onClick={handleLineClick}>
+        {task.description}
+      </S.TaskDescription>
+      <Button onClick={onDeleteTask}>x</Button>
+    </S.TaskLine>
   );
 };
