@@ -1,5 +1,4 @@
 import { ChangeEventHandler, useContext, useMemo, useState } from "react";
-import { Button } from "react95";
 import { nanoid } from "nanoid";
 
 import { Task, TasksContext } from "../TasksContext";
@@ -80,7 +79,7 @@ export const Tasks = () => {
               exitEditMode={exitNewTask}
             />
           ) : (
-            <Button onClick={addNewTask}>New Task</Button>
+            <button onClick={addNewTask}>New Task</button>
           )}
         </S.TodoContainer>
       </S.TasksContainer>

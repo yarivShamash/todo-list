@@ -1,5 +1,4 @@
-import { ThemeProvider, styled } from "styled-components";
-import original from "react95/dist/themes/original";
+import { styled } from "styled-components";
 
 import { TasksList } from "./TasksList";
 
@@ -29,7 +28,7 @@ const App = (): React.ReactElement => {
   return (
     <>
       <GlobalStyles />
-      <ThemeProvider theme={original}></ThemeProvider>
+      {/* <ThemeProvider theme={original}></ThemeProvider> */}
       <PageTitle>
         <h1>Tasks List</h1>
       </PageTitle>

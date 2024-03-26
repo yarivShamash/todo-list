@@ -1,5 +1,4 @@
 import { ChangeEventHandler } from "react";
-import { Button, TextInput } from "react95";
 
 import * as S from "./styles";
 import { TaskLineProps } from "../TaskLine";
@@ -15,8 +14,8 @@ export const TaskDescriptionEdit = ({
 }: TaskDescriptionEditProps) => {
   return (
     <S.TaskLine>
-      <TextInput key={task.id} autoFocus onChange={handleTaskChange} />
-      <Button onClick={exitEditMode}>v</Button>
+      <input key={task.id} autoFocus onChange={handleTaskChange} />
+      <button onClick={exitEditMode}>v</button>
     </S.TaskLine>
   );
 };
