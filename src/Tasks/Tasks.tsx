@@ -1,6 +1,7 @@
 import { ChangeEventHandler, useContext, useMemo, useState } from "react";
 import { nanoid } from "nanoid";
 import Container from "@mui/material/Container";
+
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
@@ -9,7 +10,6 @@ import { Task, TasksContext } from "../TasksContext";
 import * as S from "./styles";
 import { TaskLine } from "../TaskLine";
 import { TaskDescriptionEdit } from "../TaskDescriptionEdit";
-import Box from "@mui/material/Box";
 
 export const Tasks = () => {
   const [editableLineId, setEditableLineId] = useState("");
@@ -76,7 +76,7 @@ export const Tasks = () => {
             />
           ))}
 
-          <Box sx={S.NewTaskButtonContainer}>
+          <Container sx={S.NewTaskButtonContainer}>
             {newTask ? (
               <TaskDescriptionEdit
                 task={newTask}
@@ -92,7 +92,7 @@ export const Tasks = () => {
                 New Task
               </Button>
             )}
-          </Box>
+          </Container>
         </Container>
       </Container>
       {!!doneTasks.length && (

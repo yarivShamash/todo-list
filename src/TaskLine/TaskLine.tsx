@@ -1,6 +1,7 @@
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Checkbox from "@mui/material/Checkbox";
+import Typography from "@mui/material/Typography";
 
 import { TaskDescriptionEdit } from "../TaskDescriptionEdit";
 
@@ -30,9 +31,9 @@ export const TaskLine = ({
       ) : (
         <Container sx={S.TaskLine}>
           <Checkbox checked={task.done} onChange={handleTaskChange} />
-          <Container sx={S.TaskDescription} onClick={handleLineClick}>
+          <Typography sx={S.TaskDescription} onClick={handleLineClick}>
             {task.description}
-          </Container>
+          </Typography>
           <Button onClick={onDeleteTask}>x</Button>
         </Container>
       )}
