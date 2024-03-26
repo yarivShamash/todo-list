@@ -1,4 +1,3 @@
-export const TaskLine = {
+export const EditLineContainer = {
   display: "flex",
-  width: "100%",
 };

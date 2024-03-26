@@ -1,3 +1,7 @@
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import Checkbox from "@mui/material/Checkbox";
+
 import { TaskDescriptionEdit } from "../TaskDescriptionEdit";
 
 import { TaskLineProps } from "./types";
@@ -15,19 +19,23 @@ export const TaskLine = ({
   const handleTaskChange = handleEditTask(task.id);
   const onDeleteTask = () => handleDeleteTask(task.id);
 
-  return editableLineId === task.id ? (
-    <TaskDescriptionEdit
-      task={task}
-      handleTaskChange={handleTaskChange}
-      exitEditMode={exitEditMode}
-    />
-  ) : (
-    <div style={S.TaskLine}>
-      <input type="checkbox" checked={task.done} onChange={handleTaskChange} />
-      <div style={S.TaskDescription} onClick={handleLineClick}>
-        {task.description}
-      </div>
-      <button onClick={onDeleteTask}>x</button>
-    </div>
+  return (
+    <Container sx={S.TaskLineContainer}>
+      {editableLineId === task.id ? (
+        <TaskDescriptionEdit
+          task={task}
+          handleTaskChange={handleTaskChange}
+          exitEditMode={exitEditMode}
+        />
+      ) : (
+        <Container sx={S.TaskLine}>
+          <Checkbox checked={task.done} onChange={handleTaskChange} />
+          <Container sx={S.TaskDescription} onClick={handleLineClick}>
+            {task.description}
+          </Container>
+          <Button onClick={onDeleteTask}>x</Button>
+        </Container>
+      )}
+    </Container>
   );
 };
