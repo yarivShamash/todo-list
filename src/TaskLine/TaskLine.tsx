@@ -22,12 +22,12 @@ export const TaskLine = ({
       exitEditMode={exitEditMode}
     />
   ) : (
-    <S.TaskLine>
+    <div style={S.TaskLine}>
       <input type="checkbox" checked={task.done} onChange={handleTaskChange} />
-      <S.TaskDescription onClick={handleLineClick}>
+      <div style={S.TaskDescription} onClick={handleLineClick}>
         {task.description}
-      </S.TaskDescription>
+      </div>
       <button onClick={onDeleteTask}>x</button>
-    </S.TaskLine>
+    </div>
   );
 };

@@ -1,22 +1,20 @@
-import { styled } from "styled-components";
+export const TasksContainer = {
+  paddingInline: "2rem",
 
-export const TasksContainer = styled.div`
-  padding-inline: 2rem;
+  "&:nth-child(2)": {
+    marginBlock: "3rem",
+    borderTop: "1px solid gray",
+    paddingTop: "1rem",
+  },
+};
 
-  &:nth-child(2) {
-    margin-block: 3rem;
-    border-top: 1px solid gray;
-    padding-top: 1rem;
-  }
-`;
+export const TodoContainer = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+};
 
-export const TodoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-export const SectionHeading = styled.h3`
-  text-align: center;
-  margin-bottom: 2rem;
-`;
+export const SectionHeading = {
+  textAlign: "center",
+  marginBottom: "2rem",
+};

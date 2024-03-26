@@ -57,9 +57,9 @@ export const Tasks = () => {
 
   return (
     <>
-      <S.TasksContainer>
-        <S.SectionHeading>TODO</S.SectionHeading>
-        <S.TodoContainer>
+      <div style={S.TasksContainer}>
+        <h3>TODO</h3>
+        <div>
           {todoTasks.map((task) => (
             <TaskLine
               key={task.id}
@@ -81,12 +81,12 @@ export const Tasks = () => {
           ) : (
             <button onClick={addNewTask}>New Task</button>
           )}
-        </S.TodoContainer>
-      </S.TasksContainer>
+        </div>
+      </div>
       {!!doneTasks.length && (
         <>
-          <S.TasksContainer>
-            <S.SectionHeading>DONE</S.SectionHeading>
+          <div style={S.TasksContainer}>
+            <h3>DONE</h3>
             {doneTasks.map((task) => (
               <TaskLine
                 key={task.id}
@@ -98,7 +98,7 @@ export const Tasks = () => {
                 handleEditTask={tasksContext.handleEditTask}
               />
             ))}
-          </S.TasksContainer>
+          </div>
         </>
       )}
     </>

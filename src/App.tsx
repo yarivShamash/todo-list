@@ -1,40 +1,34 @@
-import { styled } from "styled-components";
-
 import { TasksList } from "./TasksList";
 
-import { GlobalStyles, appBackgroundColor } from "./reset.style";
+const PageTitleStyle = {
+  width: "inherit",
+  // position: "sticky",
+  top: 0,
 
-const PageTitle = styled.div`
-  width: inherit;
-  position: sticky;
-  top: 0;
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  padding: "0.2rem",
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.2rem;
+  backgroundColor: "FFF",
+  boxShadow: "0 0 10px 3px #949292",
+};
 
-  background-color: ${appBackgroundColor};
-  box-shadow: 0 0 10px 3px #949292;
-`;
-
-const PageContainer = styled.div`
-  width: inherit;
-  padding-top: 2rem;
-  padding-inline: 5rem;
-`;
+const PageContainerStyle = {
+  width: "inherit",
+  paddingTop: "2rem",
+  paddingInline: "5rem",
+};
 
 const App = (): React.ReactElement => {
   return (
     <>
-      <GlobalStyles />
-      {/* <ThemeProvider theme={original}></ThemeProvider> */}
-      <PageTitle>
+      <div style={PageTitleStyle}>
         <h1>Tasks List</h1>
-      </PageTitle>
-      <PageContainer>
+      </div>
+      <div style={PageContainerStyle}>
         <TasksList />
-      </PageContainer>
+      </div>
     </>
   );
 };

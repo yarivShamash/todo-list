@@ -13,9 +13,9 @@ export const TaskDescriptionEdit = ({
   exitEditMode,
 }: TaskDescriptionEditProps) => {
   return (
-    <S.TaskLine>
+    <div style={S.TaskLine}>
       <input key={task.id} autoFocus onChange={handleTaskChange} />
       <button onClick={exitEditMode}>v</button>
-    </S.TaskLine>
+    </div>
   );
 };

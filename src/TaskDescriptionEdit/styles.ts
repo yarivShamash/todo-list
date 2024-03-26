@@ -1,6 +1,4 @@
-import { styled } from "styled-components";
-
-export const TaskLine = styled.div`
-  display: flex;
-  width: 100%;
-`;
+export const TaskLine = {
+  display: "flex",
+  width: "100%",
+};
