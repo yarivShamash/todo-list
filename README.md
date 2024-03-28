@@ -1,3 +1,9 @@
+## Backend
+
+The backend was written in python. to be continued..
+
+## Frontend
+
 # React + TypeScript + Vite
 
 A home project of a TODO list generated with a minimal setup to get React working in Vite with HMR and some ESLint rules.
